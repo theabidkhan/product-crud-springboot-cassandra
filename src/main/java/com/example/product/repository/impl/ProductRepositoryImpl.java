@@ -12,9 +12,9 @@ import org.springframework.data.domain.Slice;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductQueryRepositoryImpl implements ProductRepository {
+public class ProductRepositoryImpl implements ProductRepository {
     @Autowired
-    private CassandraOperations cassandraTemplate;
+    private CassandraOperations cassandraOperations;
 
     @Override
     public Optional<Product> findById(Integer integer) {
@@ -23,6 +23,8 @@ public class ProductQueryRepositoryImpl implements ProductRepository {
 
     @Override
     public <S extends Product> S save(S entity) {
+
+        cassandraOperations.insert(entity);
         return entity;
     }
 
@@ -38,12 +40,12 @@ public class ProductQueryRepositoryImpl implements ProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return cassandraTemplate.select(Query.empty(), Product.class);
+        return cassandraOperations.select(Query.empty(), Product.class);
     }
 
     @Override
     public Product findById(int id) {
-        return cassandraTemplate.selectOne(Query.query(Criteria.where("id").is(id)).withAllowFiltering(), Product.class);
+        return cassandraOperations.selectOne(Query.query(Criteria.where("id").is(id)).withAllowFiltering(), Product.class);
     }
 
     @Override
@@ -57,13 +59,13 @@ public class ProductQueryRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Integer id) {
 
     }
 
     @Override
     public void delete(Product entity) {
-
+        cassandraOperations.delete(entity);
     }
 
     @Override

@@ -9,12 +9,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 import java.util.List;
 
 @SpringBootApplication
 @EnableCassandraRepositories
+@ComponentScan("com.example.product")
 public class ProductApplication {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());

@@ -30,4 +30,5 @@ public class CassandraConfig extends AbstractCassandraConfiguration{
     protected int getPort() {
         return PORT;
     }
+
 }

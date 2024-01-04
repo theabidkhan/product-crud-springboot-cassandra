@@ -2,6 +2,7 @@
 - [Description](#description)
 - [Prerequisites](#prerequisites)
 - [Tools](#tools)
+- [Setup Cassandra](#setup-cassandra)
 - [ Build and Run application](#build-and-run-application)
 
 ## Description
@@ -23,8 +24,10 @@ In this application, we have implemented CRUD (Create, Read, Update, Delete) ope
 - cqlsh (cassandra query language shell) - for monitoring stored data
 
 ## Setup Cassandra
-> **```brew services start cassandra```** to start the cassandra 
+> **```brew services start cassandra```** to start the cassandra
+
 > **```brew services restart cassandra```** to restart the cassandra 
+
 > **```brew services stop cassandra```** to stop cassandra
 
 ##  Build and Run application

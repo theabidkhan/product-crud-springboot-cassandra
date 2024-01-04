@@ -22,6 +22,11 @@ In this application, we have implemented CRUD (Create, Read, Update, Delete) ope
 - Postman (or any RESTful API testing tool)
 - cqlsh (cassandra query language shell) - for monitoring stored data
 
+## Setup Cassandra
+> **```brew services start cassandra```** to start the cassandra 
+> **```brew services restart cassandra```** to restart the cassandra 
+> **```brew services stop cassandra```** to stop cassandra
+
 ##  Build and Run application
 _GOTO >_ **~/absolute-path-to-directory/product**  
 and try below command in terminal
